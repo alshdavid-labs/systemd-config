@@ -1,0 +1,16 @@
+#save this to /etc/systemd/system/<servicename>.service
+#launch using sudo systemctl start|stop|restart|status <servicename>
+
+[Unit]
+Description=App Description
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart= /bin/sh /path/to/your/start.sh
+ExecStop= 
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
